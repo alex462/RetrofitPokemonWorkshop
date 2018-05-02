@@ -74,6 +74,7 @@ public class PokemonInfoFragment extends Fragment {
             public void onResponse(Call<PokemonAPICalls.PokemonInfo> call, Response<PokemonAPICalls.PokemonInfo> response) {
                 if(response.isSuccessful()) {
                     displayName.setText((response.body().getName()));
+
                     Glide.with(getContext()).load(response.body().getSprites().getDefaultImage()).into(pokemonImage);
                     makeSecondApiCall(response.body().getId());
 
